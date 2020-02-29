@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from ekattor-school-erp.com/demo/v7/login by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Jan 2020 01:23:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="uploads/system/logo/favicon.png">
+
+    <!-- App css -->
+    <link href="assets/backend/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/backend/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="../../../cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+</head>
+
+<body class="auth-fluid-pages pb-0">
+
+    <div class="auth-fluid">
+        <!--Auth fluid left content -->
+        <div class="auth-fluid-form-box">
+            <div class="align-items-center d-flex h-100">
+                <div class="card-body">
+                    <!-- Logo -->
+                    <div class="text-center text-lg-left mb-3">
+                        <a href="index.html">
+                            <span><img src="uploads/system/logo/logo-dark.png" alt="" height="35"></span>
+                        </a>
+                    </div>
+                    <!-- title-->
+                    <h4 class="mt-0">Sign In</h4>
+                    <p class="text-muted mb-4">Enter Your Email Address And Password To Access Account.</p>
+
+                    <!-- form -->
+                    <form action="http://ekattor-school-erp.com/demo/v7/login/validate_login" method="post" id="loginForm">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input class="form-control" type="email" name="email" id="email" required="" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <a href="javascript: void(0);" class="text-muted float-right" onclick="forgotPass();"><small>Forgot Your Password?</small></a>
+                            <label for="password">Password</label>
+                            <input class="form-control" type="password" name="password" required="" id="password" placeholder="Enter your password">
+                            <span class="text-danger" id="error_message"></span>
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i class="mdi mdi-login"></i> Log In </button>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-12 text-center">
+                                <h4 class="text-muted">Login As <i class="mdi mdi-arrow-down"></i></h4>
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <a href="javascript:void(0)" onclick="demo_account('superadmin')" class="btn btn-outline-success btn-rounded btn-sm mt-1">Superadmin</a>
+                                <a href="javascript:void(0)" onclick="demo_account('teacher')" class="btn btn-outline-success btn-rounded btn-sm mt-1">Teacher</a>
+                                <a href="javascript:void(0)" onclick="demo_account('parent')" class="btn btn-outline-success btn-rounded btn-sm mt-1">Parent</a>
+                                <a href="javascript:void(0)" onclick="demo_account('student')" class="btn btn-outline-success btn-rounded btn-sm mt-1">Student</a>
+                                <a href="javascript:void(0)" onclick="demo_account('accountant')" class="btn btn-outline-success btn-rounded btn-sm mt-1">Accountant</a>
+                                <a href="javascript:void(0)" onclick="demo_account('librarian')" class="btn btn-outline-success btn-rounded btn-sm mt-1">Librarian</a>
+                            </div>
+                        </div>
+                    </form>
+
+                    <form action="http://ekattor-school-erp.com/demo/v7/login/retrieve_password" method="post" id="forgotForm" style="display: none;">
+                        <div class="form-group">
+                            <a href="javascript: void(0);" class="text-muted float-right" onclick="backToLogin();"><small>Back To Login</small></a>
+                            <label for="forgotEmail">Email</label>
+                            <input class="form-control" type="email" name="email" required="" id="forgotEmail" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i class="mdi mdi-login"></i> Sent Password Reset Link </button>
+                        </div>
+                    </form>
+                    <!-- end form-->
+                </div> <!-- end .card-body -->
+            </div> <!-- end .align-items-center.d-flex.h-100-->
+        </div>
+        <!-- end auth-fluid-form-box-->
+
+        <!-- Auth fluid right content -->
+<!-- end Auth fluid right content -->
+</div>
+<!-- end auth-fluid-->
+
+<!-- App js -->
+<script src="assets/backend/js/app.min.js"></script>
+
+<!--Notify for ajax-->
+<script src="../../../cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script>
+function forgotPass(){
+    $('#loginForm').hide();
+    $('#forgotForm').show();
+}
+
+function backToLogin(){
+    $('#forgotForm').hide();
+    $('#loginForm').show();
+}
+</script>
+
+
+
+<script>
+    function demo_account(user_type){
+        if(user_type == 'superadmin'){
+            $('#email').val('superadmin@example.com');
+            $('#password').val(1234);
+        }else if(user_type == 'teacher'){
+            $('#email').val('teacher@example.com');
+            $('#password').val(1234);
+        }else if(user_type == 'parent'){
+            $('#email').val('parent@example.com');
+            $('#password').val(1234);
+        }else if(user_type == 'student'){
+            $('#email').val('student@example.com');
+            $('#password').val(1234);
+        }else if(user_type == 'accountant'){
+            $('#email').val('accountant@example.com');
+            $('#password').val(1234);
+        }else if(user_type == 'librarian'){
+            $('#email').val('librarian@example.com');
+            $('#password').val(1234);
+        }
+    }
+</script>
+</body>
+
+
+<!-- Mirrored from ekattor-school-erp.com/demo/v7/login by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Jan 2020 01:24:23 GMT -->
+</html>
